@@ -65,6 +65,8 @@ function main(){
 
             case 'guns': include ('pages/guns.php');break;
 
+            case  'news': include ('pages/news.php');break;
+
             default: include ('pages/main.php');
         }
     }
