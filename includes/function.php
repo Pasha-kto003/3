@@ -74,22 +74,56 @@ function main(){
     }
 }
 
-/*function getArticleList(){
+function getArticleList(){
    $dir = 'news/';
    $fileslist = scandir($dir);
-    $pages = glob(pattern: $dir . "*.md");
+    $pages = glob($dir . "*.md");
     foreach ($pages as $page){
-        $pagename = substr($page, offset: 8);
-      $pagename = substr($pagename, offset: 0, length: -3);
+        $pagename = substr($page,  8);
+      $pagename = substr($pagename,  0,  -3);
         echo "<li><a href=\"index.php?page=".$pagename."\">".$pagename."</a></li>";
     }
-}*/
+}
+function dbg($string){
+    echo '<pre>';
+    print_r($string);
+    echo '</pre>';
+}
+
+function getContent($path){
+    $page = parseFile($path);
+    $pageItem['header'] = (array) json_decode($page[0]);
+    $pageItem['body'] = $page[1];
+    return $pageItem;
+}
+
+function parseFile($path){
+    $content = explode( '===',getFileContent($path) );
+    return $content;
+}
+
+function getFileContent($path)
+{
+    return file_get_contents($path);
+}
+
 function articleList(){
     $path = 'news/';
     $file_list = getFileList($path);
+    foreach ($file_list as $file){
+        $page= getContent($path.$file);
+        dbg($page);
+    }
 }
+
 function getFileList($path){
     $file_list = [];
-    foreach (glob())
+    foreach (glob($path . '/*.md')as $dir){
+        if(is_file($dir)){
+            $file_list[] = basename($dir);
+        }
+    }
+    return $file_list;
 }
+
 ?>
