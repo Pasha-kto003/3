@@ -98,7 +98,7 @@ function getContent($path){
 }
 
 function parseFile($path){
-    $content = explode( '===',getFileContent($path) );
+    $content = explode( '========',getFileContent($path) );
     return $content;
 }
 
