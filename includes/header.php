@@ -78,10 +78,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.php?page=news" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                        Новости
-                    </a>
+                    <div class="dropdown">
+                        <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" href="#"  id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg class="bi me-2" width="36" height="16"><use xlink:href="#grid"></use></svg>
+                            Новости
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="index.php?page=news">Все новости</a></li>
+                            <li><a class="dropdown-item" href="#">Новости по серии игр Doom</a></li>
+                            <li><a class="dropdown-item" href="#">Новости по другим играм от Bethesda</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
             <hr>

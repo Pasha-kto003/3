@@ -65,10 +65,31 @@ function main(){
 
             case 'guns': include ('pages/guns.php');break;
 
-            case  'news': include ('pages/news.php');break;
+            //case  'news': include ('pages/news.php');break;
+
+            case  'news':getArticleList();break;
 
             default: include ('pages/main.php');
         }
     }
+}
+
+/*function getArticleList(){
+   $dir = 'news/';
+   $fileslist = scandir($dir);
+    $pages = glob(pattern: $dir . "*.md");
+    foreach ($pages as $page){
+        $pagename = substr($page, offset: 8);
+      $pagename = substr($pagename, offset: 0, length: -3);
+        echo "<li><a href=\"index.php?page=".$pagename."\">".$pagename."</a></li>";
+    }
+}*/
+function articleList(){
+    $path = 'news/';
+    $file_list = getFileList($path);
+}
+function getFileList($path){
+    $file_list = [];
+    foreach (glob())
 }
 ?>
